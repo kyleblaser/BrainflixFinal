@@ -1,0 +1,126 @@
+/** @format */
+
+@use "../../partials/mixins" as *;
+@use "../../partials/variables" as *;
+
+.info {
+  @include mobile-paragraphs-comments;
+  display: flex;
+  flex-direction: column;
+  margin-left: $spacer;
+  margin-right: $spacer;
+
+  @include tablet {
+    @include large-paragraphs-comments;
+    margin-left: $spacer * 1.5;
+    margin-right: $spacer * 1.5;
+  }
+
+  @include desktop {
+    margin: 0;
+    padding-left: $spacer * 10;
+    padding-right: 0;
+  }
+
+  &__title {
+    @include mobile-h1-header;
+    padding-top: $spacer * 3;
+    align-self: flex-start;
+
+    @include desktop {
+      @include large-h1-header;
+    }
+  }
+
+  &-divider {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-bottom: 1px solid $mercury;
+    padding-top: $spacer;
+    padding-bottom: $spacer;
+
+    @include tablet {
+      justify-content: space-between;
+      flex-direction: row;
+      padding-right: $spacer * 2;
+    }
+
+    @include desktop {
+      // Add desktop styles if needed.
+    }
+  }
+
+  &-user {
+    display: flex;
+    justify-content: flex-start;
+    margin-right: $spacer;
+
+    &__data {
+      margin-right: $spacer;
+      display: flex;
+      align-items: flex-end;
+      font-weight: 600;
+    }
+
+    &__data-two {
+      color: $silver;
+      display: flex;
+      align-items: flex-end;
+    }
+  }
+
+  &-social {
+    display: flex;
+    justify-content: flex-start;
+    padding-top: $spacer;
+
+    @include tablet {
+      padding-top: 0px;
+    }
+
+    &__view-icon,
+    &__like-icon {
+      position: relative;
+      top: 3px;
+      padding-right: 8px;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    &__view-icon:hover {
+      filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg)
+        brightness(118%) contrast(119%);
+    }
+
+    &__like-icon:hover {
+      filter: invert(26%) sepia(76%) saturate(7471%) hue-rotate(355deg)
+        brightness(99%) contrast(128%);
+    }
+
+    &__likecount {
+      padding-left: $spacer * 2;
+    }
+  }
+
+  &__commentsnum {
+    @include mobile-h3-subheader;
+    margin-top: $spacer * 3;
+    margin-bottom: $spacer * 2;
+    font-weight: 600;
+  }
+
+  &__description {
+    padding-top: $spacer;
+
+    @include tablet {
+      width: 78%;
+    }
+
+    @include desktop {
+      width: 70%;
+    }
+  }
+}

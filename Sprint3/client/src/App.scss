@@ -1,0 +1,25 @@
+/** @format */
+
+// Import partials
+@use "./partials/typography" as *;
+@use "./partials/variables" as *;
+@use "./partials/mixins" as *;
+
+// Global styles
+html,
+body {
+  font-family: "Avenir", sans-serif;
+}
+
+// Button styles
+.button {
+  background-color: $brainflix-blue;
+  color: $white;
+  border-radius: $border-radius;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $brainflix-darkblue;
+  }
+}

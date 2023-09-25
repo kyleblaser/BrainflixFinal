@@ -1,0 +1,36 @@
+/** @format */
+
+@use "../../partials/mixins" as mixins;
+@use "../../partials/variables" as variables;
+
+.video {
+  &-thumbWrapper {
+    width: 100%;
+    height: auto;
+    display: flex;
+    max-height: 40vh;
+    background-color: black;
+
+    @include mixins.tablet {
+      max-height: 60vh;
+    }
+
+    @include mixins.desktop {
+      max-height: 60vh;
+    }
+  }
+
+  &__img {
+    width: 100vw;
+    height: auto;
+    object-fit: cover;
+
+    @include mixins.tablet {
+      padding: 0 variables.$spacer * 2;
+    }
+
+    @include mixins.desktop {
+      padding: 0 variables.$spacer * 15;
+    }
+  }
+}

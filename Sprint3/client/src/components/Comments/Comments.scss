@@ -1,0 +1,213 @@
+/** @format */
+
+// Import mixins and variables
+@use "../../partials/mixins" as *;
+@use "../../partials/variables" as *;
+
+.commentsAll {
+  &__commentsnum {
+    display: flex;
+    flex-direction: column;
+    @include mobile-paragraphs-comments;
+    margin: 0;
+    padding-top: $spacer;
+    padding-bottom: $spacer;
+    margin-right: $spacer;
+    margin-left: $spacer;
+
+    @include tablet {
+      @include large-paragraphs-comments;
+      margin: 0 $spacer * 1.5;
+      padding-right: $spacer * 3;
+      padding-top: $spacer * 2;
+      padding-bottom: $spacer * 3;
+    }
+    @include desktop {
+      margin: 0 0 0 $spacer * 10;
+    }
+  }
+}
+
+.comments {
+  display: flex;
+  flex-direction: column;
+  margin-left: $spacer * 5;
+  margin-right: $spacer;
+  margin-bottom: $spacer * 1.5;
+  position: relative;
+  @include tablet {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: $spacer * 5.5;
+    margin-right: $spacer * 4;
+    margin-bottom: $spacer * 1.5;
+    height: $spacer * 3;
+  }
+  @include desktop {
+    margin-left: $spacer * 14;
+  }
+
+  &__mohan {
+    @include avatarLarge;
+    max-height: 100px;
+    max-width: 100px;
+    position: absolute;
+    background-image: url("../../assets/Images/Mohan-muruge.jpg");
+    background-size: cover;
+    left: -$spacer * 4;
+    top: $spacer * 1;
+    @include tablet {
+      top: -$spacer * 0.2;
+    }
+  }
+  &__input {
+    resize: none;
+    height: 96px;
+    border: 2px solid $mercury;
+    border-radius: 5px;
+    background-color: $alabaster;
+    overflow: hidden;
+    padding-top: $spacer * 0.75;
+    padding-left: $spacer * 0.8;
+    @include tablet {
+      height: 100%;
+      width: 80%;
+      margin-bottom: 0;
+      margin-right: $spacer;
+    }
+    margin-bottom: $spacer;
+    &::placeholder {
+      color: $black;
+      position: relative;
+      top: 2px;
+    }
+    &:focus {
+      outline: none;
+      border: 2px solid $brainflix-blue;
+    }
+  }
+  &__label {
+    @include mobile-h5-labels;
+    color: $mercury;
+    font-weight: 600;
+    @include tablet {
+      position: absolute;
+      bottom: $spacer * 3;
+    }
+  }
+
+  &__button {
+    height: $spacer * 3;
+    @include tablet {
+      height: 100%;
+      width: 20%;
+      margin-bottom: 0;
+      padding-top: 4px;
+      padding-left: $spacer * 4;
+      padding-right: $spacer * 4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+.commentsLoaded {
+  @include mobile-paragraphs-comments;
+  margin: 0;
+  padding-left: $spacer * 3.5;
+  padding-top: $spacer;
+  padding-bottom: $spacer;
+  margin-right: $spacer;
+  margin-left: $spacer;
+  border-top: 1px solid $mercury;
+  @include tablet {
+    @include large-paragraphs-comments;
+    margin: 0 $spacer * 1.5;
+    padding-right: $spacer * 3;
+    padding-top: $spacer;
+    padding-bottom: $spacer;
+  }
+  @include desktop {
+    margin: 0 0 0 $spacer * 10;
+  }
+
+  &-bottom {
+    display: flex;
+    justify-content: space-between;
+    &__text {
+      @include large-paragraphs-comments;
+      min-height: 32px;
+      margin-top: 0;
+      margin-left: 48px;
+      max-width: 100%;
+      word-wrap: break-word;
+    }
+  }
+
+  &-top {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding-bottom: 0.5rem;
+    flex-wrap: nowrap;
+    @include tablet {
+      justify-content: flex-start;
+    }
+    &__account {
+      @include font-family-bold;
+    }
+
+    &__date {
+      color: $mercury;
+      margin-left: $spacer;
+      justify-self: flex-start;
+    }
+
+    &__stamp {
+      color: $silver;
+      margin-left: 1rem;
+      position: absolute;
+      right: 0px;
+      display: none;
+      @include tablet {
+        display: block;
+      }
+    }
+
+    &__circle {
+      @include avatarMobile;
+      background-color: $mercury;
+      justify-content: space-between;
+      position: absolute;
+      left: -$spacer * 3.5;
+      top: 0;
+    }
+    &__circle-mohan {
+      @include avatarMobile;
+      background-color: $mercury;
+      justify-content: space-between;
+      background-image: url("../../assets/Images/Mohan-muruge.jpg");
+      background-position: center;
+      background-size: cover;
+      position: absolute;
+      left: -$spacer * 3.5;
+      top: 0;
+    }
+  }
+
+  &__delete {
+    min-width: 2rem;
+    height: 1.8rem;
+    background-color: firebrick;
+    transition: background-color, 0.5s;
+    margin-left: 2rem;
+    border-radius: 30%;
+    &:hover {
+      background-color: red;
+    }
+    &:focus {
+      background-color: black;
+    }
+  }
+}

@@ -1,0 +1,171 @@
+/** @format */
+
+@use "../../partials/mixins" as *;
+@use "../../partials/variables" as *;
+
+// Define common styles
+.common-styles {
+  background-color: $alabaster;
+  border-radius: 4px;
+  border: 1px solid $mercury;
+  @include desktop {
+    border: 2px solid $mercury;
+  }
+  &:focus {
+    outline: none;
+    border: 2px solid $brainflix-blue;
+  }
+}
+
+.upload {
+  display: flex;
+  flex-direction: column;
+  padding: 0 $spacer $spacer;
+  border-top: 1px solid $mercury;
+  animation: slideFromBottom 0.8s ease-out;
+
+  @include desktop {
+    padding: 0 10rem 10rem;
+  }
+
+  &__header {
+    padding: 2rem 0;
+    @include tablet {
+      padding: 2rem 0;
+      border-bottom: 2px solid $mercury;
+    }
+  }
+}
+
+.inner-load {
+  @include tablet {
+    padding: 2rem 0;
+  }
+  @include desktop {
+    display: flex;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+
+  @include desktop {
+    flex-grow: 3;
+    position: relative;
+    bottom: 1rem;
+  }
+
+  &-left {
+    @include tablet {
+      max-width: 50%;
+    }
+    @include desktop {
+      max-width: 36%;
+    }
+
+    &-img-wrapper {
+      overflow: hidden;
+      max-height: auto;
+      max-width: 100%;
+      border-radius: 4px;
+
+      @include desktop {
+        min-height: 12.7rem;
+      }
+    }
+
+    &__description {
+      @include mobile-h5-labels;
+      color: $silver;
+    }
+
+    &__img {
+      object-fit: cover;
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: 4px;
+
+      @include desktop {
+        height: 12.7rem;
+      }
+    }
+  }
+
+  &-one {
+    display: flex;
+    flex-direction: column;
+
+    @include desktop {
+      flex-direction: row;
+    }
+  }
+
+  &-right {
+    display: flex;
+    flex-direction: column;
+
+    @include desktop {
+      min-width: 70%;
+      position: relative;
+      bottom: 1rem;
+      padding-left: 1rem;
+    }
+  }
+
+  &__label {
+    @include mobile-h5-labels;
+    color: $silver;
+    padding-top: 1rem;
+  }
+
+  &__input {
+    height: $spacer * 2.5;
+    padding-left: $spacer;
+  }
+
+  &__text-area {
+    resize: none;
+    height: $spacer * 8;
+    padding-left: 1rem;
+    padding-top: 1rem;
+    @include tablet {
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+.btns {
+  display: flex;
+  flex-direction: column;
+  padding-top: $spacer * 2;
+
+  @include tablet {
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    border-top: 2px solid $mercury;
+  }
+
+  &__publish,
+  &__cancel {
+    padding: $spacer 0;
+
+    @include tablet {
+      min-width: $spacer * 10;
+    }
+  }
+
+  &__cancel {
+    background-color: $white;
+    color: $brainflix-blue;
+  }
+}
+
+@keyframes slideFromBottom {
+  0% {
+    transform: translateY(1%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

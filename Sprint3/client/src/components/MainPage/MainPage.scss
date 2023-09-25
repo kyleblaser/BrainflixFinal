@@ -1,0 +1,44 @@
+/** @format */
+
+// Import partials with specific features
+@use "../../partials/typography" as *;
+@use "../../partials/variables" as *;
+@use "../../partials/mixins" as *;
+
+// Keyframes animation
+@keyframes slideFromBottomApp {
+  0% {
+    transform: translateY(0.3%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+// Base styles for the .App class
+.App {
+  animation: 0.8s ease-out 0s 1 slideFromBottomApp;
+}
+
+// Styles for the .half-page class
+.half-page {
+  @include desktop {
+    display: flex;
+  }
+
+  // Styles for .half-page-left
+  &-left {
+    @include desktop {
+      width: 60%;
+    }
+  }
+}
+
+// Styles for the .load-screen class
+.load-screen {
+  font-size: 2.5rem;
+  padding-top: 2rem;
+  display: flex;
+  justify-content: center;
+  font-weight: 600;
+}
